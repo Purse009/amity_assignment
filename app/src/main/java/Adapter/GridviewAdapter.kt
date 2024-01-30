@@ -37,13 +37,9 @@ internal class GridViewAdapter(
 
         convertView = layoutInflater!!.inflate(R.layout.gridview_item, null)
 
-        val userId = convertView.findViewById<TextView>(R.id.user_id)
-        val id = convertView.findViewById<TextView>(R.id.id)
         val title = convertView!!.findViewById<TextView>(R.id.title)
         val complete = convertView.findViewById<TextView>(R.id.complete)
 
-        userId.text = "User ID : ${todoList[p0].userId}"
-        id.text = "ID : ${todoList[p0].id}"
         title.text = "Title : ${todoList[p0].title}"
         complete.text = "Complete : ${ todoList[p0].completed}"
 
