@@ -24,16 +24,16 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // fetch ToDoList
-        todoListViewModel.getToDoList()
-
         // checking internet connection
+
         val connectivityManager =
             this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val capabilities =
             connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
 
         if (capabilities != null) {
+            // fetch ToDoList
+            todoListViewModel.getToDoList()
             todoListViewModel.todoList.observe(this) {
                 // save todoList to local storage
                 todoListViewModel.saveOfflineValue(it!!, dbHelper)
